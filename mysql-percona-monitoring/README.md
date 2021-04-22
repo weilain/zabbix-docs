@@ -1,8 +1,7 @@
 ## 在Zabbix-Agent端安装percona Monitoring Plugins
 ```
-[root@Agent ~]# yum install -y http://www.percona.com/downloads/percona-release/redhat/0.1-3/percona-release-0.1-3.noarch.rpm
-yum install -y https://downloads.percona.com/downloads/percona-monitoring-plugins/percona-monitoring-plugins-1.1.8/binary/redhat/7/x86_64/percona-zabbix-templates-1.1.8-1.noarch.rpm
-[root@Agent ~]# yum install percona-zabbix-templates -y
+[root@Agent ~]# rpm -ivh percona-zabbix-templates-1.1.8-1.noarch.rpm
+[root@Agent ~]# yum install php
 ```
 ## 查看percona安装后的目录结构
 ```
@@ -24,6 +23,7 @@ yum install -y https://downloads.percona.com/downloads/percona-monitoring-plugin
 [root@Agent ~]# systemctl restart zabbix-agent
 ```
 ## 修改脚本中的MySQL用户名和密码
+生产环境建议创建专门只读账号。
 ```
 [root@Agent scripts]# vim /var/lib/zabbix/percona/scripts/ss_get_mysql_stats.php
 $mysql_user = 'root';
@@ -44,5 +44,17 @@ $mysql_port = 3306;
 1. 删除/tmp/localhost-mysql_cacti_stats.txt文件
 1. 权限问题导致
 
+## 问题
+1. 权限不足
+```
+Received value [rm: 无法删除"/tmp/localhost-mysql_cacti_stats.txt": 不允许的操作0] is not suitable for value type [Numeric (float)]
 
+chown -R zabbix:zabbix /tmp/localhost-mysql_cacti_stats.txt
+```
+2. 导入模版
+```
+标签无效 "/zabbix_export/date": "YYYY-MM-DDThh:mm:ssZ" 预计。
+
+使用修改的好的监控模版 `templates/zabbix_agent_template-4.4.xml`
+```
 在Zabbix页面模板选项中导入Percona模板, 模板存放在`/var/lib/zabbix/percona/templates`， 最后关联主机即可。
