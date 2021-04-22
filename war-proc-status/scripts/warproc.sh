@@ -1,0 +1,2 @@
+#!/bin/bash
+sudo /usr/bin/ps -ef | grep "[o]rg.apache.catalina.startup.Bootstrap start" | grep -v grep | awk '{print $9}'|awk -F '/' '{print$3}'  | xargs |awk 'BEGIN{printf "["};{i=1;while(i<=NF){printf "{\"{#WARUSER}\":\"root\",\"{#WARNAME}\":\""$i"\"}";if(i!=NF)printf ",";i++}}END{printf "]\n"}'
