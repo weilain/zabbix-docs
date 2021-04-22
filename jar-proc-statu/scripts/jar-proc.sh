@@ -1,0 +1,2 @@
+#!/bin/bash
+sudo /usr/local/jdk1.8.0_151/bin/jps -l| awk -F"[ .]" '{if($2~"ic|sha")print $2}' | xargs |awk 'BEGIN{printf "["};{i=1;while(i<=NF){printf "{\"{#USER}\":\"root\",\"{#PKGNAME}\":\""$i"\"}";if(i!=NF)printf ",";i++}}END{printf "]\n"}'
