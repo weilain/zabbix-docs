@@ -1,7 +1,7 @@
 ## 在Zabbix-Agent端安装percona Monitoring Plugins
 ```
 [root@Agent ~]# rpm -ivh percona-zabbix-templates-1.1.8-1.noarch.rpm
-[root@Agent ~]# yum install php
+[root@Agent ~]# yum install php php-mysql
 ```
 ## 查看percona安装后的目录结构
 ```
