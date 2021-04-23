@@ -33,6 +33,8 @@ $mysql_port = 3306;
 
 ## 在Zabbix-Server端上使用Zabbix_get获取值(否则会失败)
 ```
+[root@Agent scripts]# /var/lib/zabbix/percona/scripts/get_mysql_stats_wrapper.sh gg
+405647
 [root@Server ~]# zabbix_get -s 192.168.90.11 -k MySQL.pool-read-requests
 223003813
 ```
@@ -49,7 +51,7 @@ $mysql_port = 3306;
 ```
 Received value [rm: 无法删除"/tmp/localhost-mysql_cacti_stats.txt": 不允许的操作0] is not suitable for value type [Numeric (float)]
 
-chown -R zabbix:zabbix /tmp/localhost-mysql_cacti_stats.txt
+[root@Agent ~]chown -R zabbix:zabbix /tmp/localhost-mysql_cacti_stats.txt
 ```
 2. 导入模版
 ```
