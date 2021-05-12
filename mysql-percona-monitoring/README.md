@@ -27,7 +27,7 @@
 ```
 [root@Agent scripts]# vim /var/lib/zabbix/percona/scripts/ss_get_mysql_stats.php
 $mysql_user = 'root';
-$mysql_pass = 'password';
+$mysql_pass = 's3cret';
 $mysql_port = 3306;
 ```
 
@@ -60,3 +60,20 @@ Received value [rm: 无法删除"/tmp/localhost-mysql_cacti_stats.txt": 不允�
 使用修改的好的监控模版 `templates/zabbix_agent_template-4.4.xml`
 ```
 在Zabbix页面模板选项中导入Percona模板, 模板存放在`/var/lib/zabbix/percona/templates`， 最后关联主机即可。
+
+3. 脚本获取端口问题
+默认端口3306 自动生成脚本文件
+```
+/tmp/localhost-mysql_cacti_stats.txt
+```
+不使用默认端口 自动生成脚本文件
+```
+/tmp/localhost-mysql_cacti_stats.txt:3506
+```
+不使用默认端口修改脚本文件,修改两处
+```
+cat /var/lib/zabbix/percona/scripts/get_mysql_stats_wrapper.sh
+
+CACHEFILE="/tmp/$HOST-mysql_cacti_stats.txt:3506"
+TIMEFLM=`stat -c %Y /tmp/$HOST-mysql_cacti_stats.txt:3506`
+```
