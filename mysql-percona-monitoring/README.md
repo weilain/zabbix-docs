@@ -77,3 +77,6 @@ cat /var/lib/zabbix/percona/scripts/get_mysql_stats_wrapper.sh
 CACHEFILE="/tmp/$HOST-mysql_cacti_stats.txt:3506"
 TIMEFLM=`stat -c %Y /tmp/$HOST-mysql_cacti_stats.txt:3506`
 ```
+4. screens 单独上传 
+模版默认host： Percona MySQL Server Template
+把默认host替换成mysql host name
