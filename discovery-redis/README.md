@@ -1,10 +1,5 @@
 ## 概述
 本文主要基于zabbix自动发现监控redis，redis指标主要通过 **redis-cli info** 命令采集，并使用zabbix-sender 将监控数据发送至zabbix-server。
-## 环境描述
-1. zabbix-server 4.0
-2. zabbix-sender 4.0
-3. python2.7
-4. redis 5.0.5 
 ## 工作原理
 zabbix discovery自动发现redis端口及redis-cli路径，request.redis 该key执行时会触发zabbix-sender发送数据给zabbix-server。
 ## 注意事项
