@@ -43,8 +43,3 @@ zabbix discovery自动发现redis端口及redis-cli路径，request.redis 该key
 ## 效果图![redis监控](https://imgconvert.csdnimg.cn/aHR0cHM6Ly9zZWdtZW50ZmF1bHQuY29tL2ltZy9iVmJEdUlrL3ZpZXc?x-oss-process=image/format,png)
 
 ## 触发器![zabbix 触发器](https://imgconvert.csdnimg.cn/aHR0cHM6Ly9zZWdtZW50ZmF1bHQuY29tL2ltZy9iVmJEdUlVL3ZpZXc?x-oss-process=image/format,png)
-
-#### 如有疑问可通过以下途径联系
-![运维724](https://imgconvert.csdnimg.cn/aHR0cHM6Ly9zZWdtZW50ZmF1bHQuY29tL2ltZy9iVmJBWWRUL3ZpZXc?x-oss-process=image/format,png)
-QQ 群
-![在这里插入图片描述](https://imgconvert.csdnimg.cn/aHR0cHM6Ly9zZWdtZW50ZmF1bHQuY29tL2ltZy9iVmJEdUt4L3ZpZXc?x-oss-process=image/format,png)
